@@ -1,0 +1,14 @@
+{
+  "name": "load-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "infra:build": "docker-compose build",
+    "infra:start": "docker-compose up -V -d",
+    "infra:stop": "docker-compose down",
+    "load-test:run": "chmod +x scripts/*.sh && ./scripts/run.sh"
+  },
+  "author": "",
+  "license": "ISC"
+}
