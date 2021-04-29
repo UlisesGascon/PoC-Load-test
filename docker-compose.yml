@@ -1,4 +1,4 @@
-version: '3.4'
+version: "3.4"
 
 networks:
   k6:
@@ -6,7 +6,7 @@ networks:
 
 services:
   influxdb:
-    image: influxdb:latest
+    image: influxdb:1.8
     networks:
       - k6
       - grafana
@@ -27,9 +27,9 @@ services:
       - GF_AUTH_BASIC_ENABLED=false
     volumes:
       - ./grafana/grafana-datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
-     # see: https://github.com/ulisesgascon/PoC-Load-test/issues/1
-     # - ./grafana/grafana-dashboard.json:/var/lib/grafana/dashboards/mydashboard.json
-     # - ./grafana/grafana-dashboard.yaml:/etc/grafana/provisioning/dashboards/local.yaml
+      # see: https://github.com/ulisesgascon/PoC-Load-test/issues/1
+      # - ./grafana/grafana-dashboard.json:/var/lib/grafana/dashboards/mydashboard.json
+      # - ./grafana/grafana-dashboard.yaml:/etc/grafana/provisioning/dashboards/local.yaml
 
   k6:
     image: loadimpact/k6:latest
